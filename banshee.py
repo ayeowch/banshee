@@ -6,7 +6,7 @@ banshee - Read web server access log file and ban abusive IP addresses.
 """
 
 __author__ = 'Dazzlepod (info@dazzlepod.com)'
-__copyright__ = 'Copyright (c) 2012 Dazzlepod'
+__copyright__ = 'Copyright (c) 2013 Dazzlepod'
 __version__ = '1.1'
 
 import datetime
@@ -29,7 +29,7 @@ config = {
     'ban_ip_url': 'http://localhost/ip/ban_ip',
 
     # API to return the country information for the given IP_ADDRESS
-    'ip_country': 'https://dazzlepod.com/ip/IP_ADDRESS.json',
+    'ip_country': 'http://dazzlepod.com/ip/IP_ADDRESS.json',
 
     # Magic key is required for all HTTP POST requests sent to the API above
     'magic_key': 'iLzmJkPe8JbzMmt30Frz',
@@ -41,13 +41,13 @@ config = {
     'delay': 1,
 
     # Number of lines to tail from the access log
-    'tail_lines': 20,
+    'tail_lines': 60,
 
     # The duration to run this Banshee instance
-    'lifetime': 900,
+    'lifetime': 3600,
 
     # Max. requests that can be made from the same IP address within the lifetime of this Banshee instance
-    'max_requests': 50,
+    'max_requests': 30,
 
     # List of strings that may appear in request URL; these are the monitored requests
     'watchlist': [
@@ -66,8 +66,9 @@ config = {
     # Use struct.unpack('!I', socket.inet_pton(socket.AF_INET, '<VALUE>'))[0] to get these integers
     # CIDR table: http://tools.ietf.org/rfc/rfc1878.txt
     'trusted_networks': (
-        # Google - This is not listed in nslookup command below
+        # Google - These networks are not listed in nslookup command below
         [1123631104, 4294959104], # 66.249.64.0, 255.255.224.0
+        [3419414528, 4294959104], # 203.208.32.0, 255.255.224.0
 
         # Google - Use nslookup -q=TXT _netblocks.google.com 8.8.8.8 to get current list
         [3639549952, 4294959104], # 216.239.32.0, 255.255.224.0
