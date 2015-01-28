@@ -38,13 +38,13 @@ Add a cronjob entry to ensure banshee.py is always running, example:
 
 Use `ip.is_allowed_ip` view function to check if an IP address has been banned.
 
-The default max. requests that a particular IP address can make within 15 minutes period is set to 50.  
+The default max. requests that a particular IP address can make within 60 minutes period is set to 30.
 Change `banshee.config['max_requests']` if you wish to increase or decrease this value.
 
-Certain user agents are never banned by banshee. 
+Certain user agents are never banned by banshee.
 You may want to change the list of these user agents in `banshee.config['passthrough_user_agents']`
 
-Instead of whitelisting user agents, a better alternative would be to always allow requests from a trusted network.  
+Instead of whitelisting user agents, a better alternative would be to always allow requests from a trusted network.
 You may update the list of networks that you trust in `banshee.config['trusted_networks']`
 
 Banshee recognizes web server access log that uses the following log format:

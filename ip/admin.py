@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ip.models import *
+from ip.models import BannedIp
 
 
 class BannedIpAdmin(admin.ModelAdmin):

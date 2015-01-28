@@ -1,5 +1,5 @@
-from django.conf.urls.defaults import *
-from ip.views import *
+from django.conf.urls import patterns
+from ip.views import ban_ip
 
 
 urlpatterns = patterns('',
