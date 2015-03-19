@@ -1,6 +1,5 @@
 # banshee
 Banshee is a Python script that tails your access log and ban abusive IP addresses from accessing your Django applications.
-We use banshee to block spammers from harvesting emails from [https://dazzlepod.com/disclosure/](https://dazzlepod.com/disclosure/ "Disclosure Project")
 
 ## Installation
 
